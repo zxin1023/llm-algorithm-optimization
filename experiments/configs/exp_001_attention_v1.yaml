@@ -1,0 +1,22 @@
+experiment:
+  name: "exp_001_attention_v1"
+  description: "Test Flash Attention V2 implementation for inference optimization"
+  parent_config: "baseline.yaml"
+
+model:
+  name: "llama2-7b"
+  batch_size: 32
+  seq_length: 2048
+
+optimization:
+  attention: "flash_v2"
+  decoding: "greedy"
+  kv_cache: "full"
+
+expected_improvement:
+  latency_reduction_percent: 25
+  reasoning: "Flash Attention减少内存IO"
+
+performance_target:
+  latency_ms: 75
+  throughput: 13

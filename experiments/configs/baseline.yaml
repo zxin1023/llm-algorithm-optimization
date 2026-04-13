@@ -1,0 +1,18 @@
+experiment:
+  name: "baseline"
+  description: "Production baseline implementation"
+
+model:
+  name: "llama2-7b"
+  batch_size: 32
+  seq_length: 2048
+
+optimization:
+  attention: "standard"
+  decoding: "greedy"
+  kv_cache: "full"
+
+performance_target:
+  latency_ms: 100
+  throughput: 10
+  memory_gb: 16
